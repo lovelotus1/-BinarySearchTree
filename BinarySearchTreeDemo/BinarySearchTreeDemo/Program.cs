@@ -14,10 +14,10 @@ namespace BinarySearchTree
             Console.WriteLine();
             //Creating binary seaRch tree to insret and display node values(UC1)
             BinSearchTree<int> binaryTree = new BinSearchTree<int>(56);
-            
+
             while (true)
             {
-                Console.WriteLine("1: Insert Default Values \n2: Enter More Values \n3: Display Binary Tree Values \n4: Get Size of Binary Tree" + "\n5: Exit");
+                Console.WriteLine("1: Insert Default Values \n2: Insert More Values \n3: Display Binary Tree Values \n4: Get Size of Binary Tree" + "\n5 Check The Value Exist or Not \n6: Exit");
                 Console.Write("Enter a Choice from Above :");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
@@ -41,21 +41,24 @@ namespace BinarySearchTree
                     case 2:
                         //Taking the value from user to enter value in binary tree
                         Console.Write("Enter Any Value in Binary Search Tree : ");
-                        int binValue = int.Parse(Console.ReadLine());
-                        binaryTree.Insert(binValue);
-                        Console.WriteLine("Value is Inserted into Binary Tree\n");
-                        break;
-                    case 3:
-                        //Displaying the values in binary tree(UC1)
-                        Console.Write("Binary Tree Values Are : ");
-                        binaryTree.Display();
-                        Console.WriteLine();
-                        break;
-                    case 4:
-                        //Displaying the size of the binary tree(UC2)
+
                         binaryTree.GetSize();
                         break;
                     case 5:
+                        //Checking the given Value exists or not (UC3)
+                        Console.Write("Enter a Value to Check if its Exist or Not in Binary Tree :");
+                        int valCheck = int.Parse(Console.ReadLine());
+                        bool result = binaryTree.IfValueExists(valCheck, binaryTree);
+                        if (result)
+                        {
+                            Console.WriteLine("The Given Value {0} is Present in Binary Tree \n", valCheck);
+                        }
+                        else
+                        {
+                            Console.WriteLine("The Given Value {0} is not Present in Binary tree \n", valCheck);
+                        }
+                        break;
+                    case 6:
                         Environment.Exit(0);
                         break;
                     default:
