@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace BinarySearchTree
 {
     public class BinSearchTree<T> where T : IComparable<T>
@@ -11,16 +10,13 @@ namespace BinarySearchTree
         public T NodeData { get; set; }
         public BinSearchTree<T> LeftTree { get; set; }
         public BinSearchTree<T> RightTree { get; set; }
-
         public BinSearchTree(T nodeData)
         {
             this.NodeData = nodeData;
             this.LeftTree = null;
             this.RightTree = null;
-
         }
         int leftCount = 0, rightCount = 0;
-
         // Method to check node add node value to either left or right by comparing(UC1)
         public void Insert(T data)
         {
@@ -40,7 +36,6 @@ namespace BinarySearchTree
                     this.RightTree.Insert(data);
             }
         }
-
         //Displaying the data in the binary tree(UC1)
         public void Display()
         {
@@ -55,6 +50,11 @@ namespace BinarySearchTree
                 rightCount++;
                 RightTree.Display();
             }
+        }
+        //Method to get the size of the binary tree (UC2)
+        public void GetSize()
+        {
+            Console.WriteLine("Size of the binary tree is : " + (1 + this.leftCount + this.rightCount) + "\n");
         }
     }
 }
